@@ -3,41 +3,34 @@ body {
     margin: 0;
     padding: 0;
     font-size: 0;
-    background: #FAFAF9;
-}
-
-.container {
-    width: 100%;
-    margin: 0 auto;
-    clear: both;
+    background: #FAFAFA;
 }
 
 /* GESTION DU HEADER */
-/* Positionnement de la flèche retour */
+/* Flèche retour */
 #arrow {
     position: relative;
     top: -15px;
-    left: -100px;
+    left: 25px;
     width: 100px;
 }
 
-nav {
-    background: #FFF;
+/* Menu, ombre */
+.trigger-menu-wrapper {
     height: 125px;
-    width: 100%;
     line-height: 150px;
     box-shadow: 1px 1px 10px 5px rgba(0, 0,0, 0.2);
     position: fixed;
     top: 0;
     left: 0;
-    transition: all 0.2s;
-    &.scrollUp
-    transform: translateY(-80px);
+    right: 0;
+    z-index: 2;
+    background: var(--white);
 }
 
 /* GESTION DES IMAGES */
 /* Positionnement des images au centre */
-#lS, #lR, #lC, #pay {
+#lS, #lR, #lC, #money, #bc {
     display: block;
     margin: auto;
 }
@@ -49,6 +42,7 @@ nav {
     width: 275px;
 }
 
+/* logo snack */
 #lR {
     position: relative;
     top: 150px;
@@ -82,14 +76,16 @@ nav {
 
 /* Positionnement de l'image de la croix */
 #del1 {
-    top: 565px;
+    top: 575px;
     right: 0px;
+    width: 110px;
 }
 
 /* Positionnement de l'image de la croix */
 #del2 {
-    top: 865px;
+    top: 875px;
     right: 0px;
+    width: 110px;
 }
 
 /* Positionnement de l'image du tacos */
@@ -114,11 +110,13 @@ nav {
     position: absolute;
 }
 
+/* Titre1 = "tacos" */
 #t1 {
     top: 590px;
     left: 50px;
 }
 
+/* Commande2 */
 #t2 {
     top: 890px;
     left: 50px;
@@ -127,10 +125,11 @@ nav {
 /* Prix totale */
 #tpr {
     font-size: 65px;
-    display: inline;
     color: #1975BA;
-    position: relative;
-    left: 125px;
+    margin-right: auto;
+    position: absolute;
+    top: -15px;
+    right: -325px;
 }
 
 /* Les ingrédients du tacos */
@@ -188,6 +187,7 @@ nav {
     position: absolute;
 }
 
+/* Total suppléments */
 #pr1 {
     right: 90px;
     top: 775px;
@@ -202,7 +202,7 @@ nav {
 #total {
     font-size: 44px;
     position: absolute;
-    top: 1240px;
+    top: 1260px;
     left: 55px;
     font-family: Arial, sans-serif;
     font-weight: bold;
@@ -220,10 +220,11 @@ nav {
 /* Ligne en dessous de "Total suppléments" */
 #l2, #l3 {
     height: 25px;
-    width: 99%;
+    width: 100%;
     position: absolute;
 }
 
+/* ligne 2 */
 #l2 {
     top: 865px;
 }
@@ -236,12 +237,13 @@ nav {
 #l4 {
     height: 8px;
     width: 100%;
-    box-shadow: 1px -6px 10px 4px rgba(0, 0,0, 0.2);
+    box-shadow: 1px -6px 10px 2px rgba(0, 0,0, 0.2);
     position: relative;
     top: 1480px
 }
 
-/* MODE DE PAIEMENT */
+/* GESTION DU PAIEMENT */
+/* "Mode de paiement" */
 #paymt_m {
     font-size: 46px;
     position: relative;
@@ -250,9 +252,37 @@ nav {
     font-weight: bold;
 }
 
-/* Paiement */
-#pay {
+/* Gestion des bar */
+.money-bar, .bc-bar {
+    border: 3px #1975BA solid;
+    background-color: #1975BA;
+    border-radius: 40px;
+    width: 275px;
+    height: 100px;
     position: relative;
-    top: 1385px;
-    width: 625px;
+    top: 1475px;
+}
+
+.money-bar {
+    left: 19%;
+    float: left;
+}
+
+.bc-bar {
+    right: 19%;
+    float: right;
+}
+
+/* money logo */
+#money {
+    width: 110px;
+    position: relative;
+    top: -5px;
+}
+
+/* carte bancaire logo */
+#bc {
+    width: 75px;
+    position: relative;
+    top: 5px;
 }
