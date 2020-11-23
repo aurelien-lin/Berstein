@@ -381,7 +381,7 @@ body {
 }
 
 .border2 {
-    border: 3px #8FD7F5 solid;
+    border: 7px #1975BA solid;
     border-radius: 30px;
     width: 150px;
     height: 100px;
@@ -418,4 +418,44 @@ body {
     position: relative;
     top: 317px;
     left: 735px;
+}
+
+#supp1 {
+    width: 80px;
+    position: relative;
+    top: 50%;
+    left: 30px;
+    transform: translateY(-50%);
+}
+
+#supp2 {
+    width: 80px;
+    position: relative;
+    top: 50%;
+    left: 30px;
+    transform: translateY(-50%);
+}
+
+#supp3 {
+    width: 80px;
+    position: relative;
+    top: 50%;
+    left: 30px;
+    transform: translateY(-50%);
+}
+
+#supp4 {
+    width: 80px;
+    position: relative;
+    top: 50%;
+    left: 30px;
+    transform: translateY(-50%);
+}
+
+#supp5 {
+    width: 80px;
+    position: relative;
+    top: 50%;
+    left: 30px;
+    transform: translateY(-50%);
 }
