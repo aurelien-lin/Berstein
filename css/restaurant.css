@@ -4,7 +4,7 @@ body {
     padding: 0;
     font-size: 0;
     background: #FAFAFA;
-    min-height: 3000px;
+    min-height: 2370px;
 }
 
 /* GESTION DU HEADER */
@@ -52,10 +52,99 @@ body {
     box-shadow: 1px 1px 10px 5px rgba(0, 0,0, 0.2);
 }
 
+/* Ligne au dessus de "Mode de paiement" */
 #line {
-    height: 8px;
+    height: 7px;
     width: 100%;
     box-shadow: 1px -6px 10px 2px rgba(0, 0,0, 0.2);
+    position: absolute;
+    bottom: 180px;
+}
+
+/* GESTION DU PAIEMENT */
+/* Gestion des bar */
+.static-bar {
+    width: 100%;
+    height: 180px;
+    line-height: 200px;
+    z-index: 2;
     position: fixed;
-    bottom: 185px;
+    bottom: 0;
+    background: var(--white);
+}
+
+.bar1 {
+    width: 100%;
+    height: 7px;
+    box-shadow: 5px 5px 5px grey;
+    position: relative;
+    top: 640px;
+}
+
+.bar2 {
+    width: 100%;
+    height: 7px;
+    box-shadow: 5px 5px 5px grey;
+    position: relative;
+    z-index: 1;
+    top: 940px;
+}
+
+.bar3 {
+    width: 100%;
+    height: 300px;
+    border: 2px #DFDFDF solid;
+    background-color: #DFDFDF;
+    position: relative;
+    top: 940px;
+}
+
+.bar4 {
+    width: 100%;
+    height: 7px;
+    box-shadow: 5px 5px 5px grey;
+    position: relative;
+    top: 1240px;
+}
+
+.bar5 {
+    width: 100%;
+    height: 7px;
+    box-shadow: 5px 5px 5px grey;
+    position: relative;
+    top: 1540px;
+}
+
+.bar6 {
+    width: 100%;
+    height: 7px;
+    box-shadow: 5px 5px 5px grey;
+    position: relative;
+    top: 1840px;
+}
+
+#pub1 {
+    font-size: 160px;
+    font-weight: bold;
+    font-style: Arial, sans-serif;
+    text-align: center;
+    position: relative;
+    top: 50%;
+    transform: translateY(-45%);
+}
+
+#pub2 {
+    font-size: 130px;
+    font-weight: bold;
+    font-style: Arial, sans-serif;
+    text-align: center;
+}
+
+#t1 {
+    font-size: 60px;
+    font-weight: bold;
+    font-style: Arial, sans-serif;
+    position: absolute;
+    bottom: 125px;
+    left: 50px;
 }
