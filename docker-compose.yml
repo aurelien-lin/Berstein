@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'db'
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD: 'password'
+      MYSQL_ROOT_PASSWORD: 'password'
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+
+  api:
+    container_name: Server
+    build:
+      dockerfile: Dockerfile
+      context: "./Server"
+    ports:
+      - '8080:8080'
+
+  client:
+    container_name: Client
+    build:
+      dockerfile: Dockerfile
+      context: ./Client
+    ports:
+      - '3000:3000'
