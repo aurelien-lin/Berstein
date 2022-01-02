@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import SpotifyApi from "../components/SpotifyAPI";
 
 const CLIENT_ID = "17314cd11d9d4515824588b6e6f64eee"; // insert your client id here from spotify

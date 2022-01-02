@@ -3,24 +3,14 @@ import { useNavigate } from 'react-router-dom';
 
 function PageRegister() {
 
-    const [firstName, setFirstName] = useState();
-    const [lastName, setLastName] = useState();
-    const [email, setEmail] = useState();
+    const [account, setaccount] = useState();
     const [password, setPassword] = useState();
     const [confirmpassword, setConfirmpassword] = useState();
 
     const navigate = useNavigate();
 
-    function handleFisrtName(text) {
-        setFirstName(text);
-    }
-
-    const handleLastName = (text) => {
-        setLastName(text);
-    }
-
-    const handleEmail = (text) => {
-        setEmail(text);
+    function handleAccount(text) {
+        setaccount(text);
     }
 
     const handlePassword = (text) => {
@@ -31,10 +21,34 @@ function PageRegister() {
         setConfirmpassword(text);
     }
     const registerAccount = () => {
+        const axios = require('axios');
+        const qs = require('qs')
 
-                navigate('/')
+        const data = qs.stringify({
+        "account": account,
+        "password": confirmpassword
+        });
+
+        const config = {
+        method: 'post',
+        url: 'http://localhost:8080/services/register',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        data : data
+        };
+
+        axios(config)
+        .then(function (response) {
+            console.log(JSON.stringify(response.data));
+            if (password !== confirmpassword)
+                console.log('error same password')
+            navigate('/')
+        })
+        .catch(function (error) {
+        console.log(error);
+        });
     }
-
     return (
         <div style={{ textAlign: 'center', justifyContent: 'center' }}>
                         <text style={{fontSize: '3em', marginTop: '40px'}}>
@@ -42,13 +56,7 @@ function PageRegister() {
                         </text>
                         <div style={{ textAlign: 'center', justifyContent: 'center' }}>
                         <div style={{ marginTop: '20px' }}>
-                            <input  style={{fontSize: '3em', marginTop: '10px'}} type='text'name='name' placeholder='Prénom' className='input0' value={firstName} onChange={e => handleFisrtName(e.target.value)}></input>
-                        </div>
-                        <div>
-                            <input  style={{fontSize: '3em', marginTop: '10px'}} type='text'name='name' placeholder='Nom' className='input1' value={lastName} onChange={e => handleLastName(e.target.value)}></input>
-                        </div>
-                        <div>
-                            <input  style={{fontSize: '3em', marginTop: '10px'}} type='text' name='name' placeholder='Email' className='input2'  value={email} onChange={e => handleEmail(e.target.value)}></input>
+                            <input  style={{fontSize: '3em', marginTop: '10px'}} type='text'name='name' placeholder='Nom de compte' className='input0' value={account} onChange={e => handleAccount(e.target.value)}></input>
                         </div>
                         <div>
                             <input  style={{fontSize: '3em', marginTop: '10px'}} type='password' name='password' placeholder='mot de passe' className='input3'  value={password} onChange={e => handlePassword(e.target.value)}></input>
