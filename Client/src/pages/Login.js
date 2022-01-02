@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 function PageLogin() {
 
@@ -18,7 +19,21 @@ function PageLogin() {
     }
 
     const loginAccount = () => {
-                navigate("/Home")
+        axios.post("http://localhost:8080/user/login", {email: firstName, password: password})
+            .then(response => {
+                if (response.data.message === 'authentificated') {
+                    navigate("/Home")
+                }
+                if (response.data.message === 'Password is incorrect') {
+                    console.log("MAUVAIS MDP")
+                }
+                if (response.data.message === 'No user with that email address') {
+                    console.log("MAUVAIS PWD")
+                }
+            })
+            .catch(err => {
+                console.log(err)
+            })
     }
 
     return (
@@ -28,7 +43,7 @@ function PageLogin() {
                         </text>
                         <div style={{ textAlign: 'center', justifyContent: 'center' }}>
                         <div style={{ marginTop: '20px' }}>
-                        <input  style={{fontSize: '3em'}} type='text'name='name' placeholder='Nom de compte' className='input0' value={firstName} onChange={e => handleFisrtName(e.target.value)}></input>
+                        <input  style={{fontSize: '3em'}} type='text'name='name' placeholder='Email' className='input0' value={firstName} onChange={e => handleFisrtName(e.target.value)}></input>
                         </div>
                         <div>
                             <input style={{fontSize: '3em', marginTop: '10px'}}  type='password' name='password' placeholder='mot de passe' className='input3'  value={password} onChange={e => handlePassword(e.target.value)}></input>

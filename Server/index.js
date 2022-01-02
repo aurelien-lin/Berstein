@@ -3,12 +3,22 @@ const express = require('express');
 const PORT = process.env.PORT || 8080;
 var requestIp = require('request-ip');
 var moment = require('moment');
+var mongoose = require('mongoose');
 
 const app = express();
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
 
+
 app.use(cors())
+
+// const uri = "mongodb+srv://lucasnora:lucasnoradashboard@cluster0.fl8qw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+const uri = "mongodb+srv://rilongrobin:azerty@cluster0.im9ii.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+mongoose.connect(uri, {useUnifiedTopology: true, useNewUrlParser: true});
+const connection = mongoose.connection;
+connection.once('open',() => {
+    console.log("Connexion to db is done");
+});
 
 app.get('/', (req, res) => {
     res.json({ message: "From server!" });
@@ -113,7 +123,9 @@ app.get('/about.json', (req, res) => {
 })
 
 const services = require("./services");
+const user = require("./connexion");
 app.use('/services', services);
+app.use('/user', user);
 
 // app.get('/', (req, res) => {
 //   let dbStatus = getDb() ? 'connected' : 'not connected'

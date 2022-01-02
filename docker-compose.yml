@@ -1,18 +1,6 @@
 version: '3.8'
 
 services:
-  mongodb:
-    image : mongo
-    container_name: mongodb
-    environment:
-      - PUID=1000
-      - PGID=1000
-    volumes:
-      - /home/rlin/delivery/TEK3/B-DEV-500-PAR-5-1-dashboard-rilong.lin/
-    ports:
-      - 27017:27017
-    restart: unless-stopped
-
   api:
     container_name: Server
     build:
